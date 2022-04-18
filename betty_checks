@@ -1,8 +1,7 @@
 #!/bin/bash
-# Simply a wrapper script to keep you from having to use betty-style
-# and betty-doc separately on every item.
+# Write a beautiful code that passes the Betty checks
 # Originally by Tim Britton (@wintermanc3r), multiargument added by
-# Larry Madeo (@hillmonkey)
+# Larry Madeo (@hillmonkey) *** preguntar
 
 BIN_PATH="betty"
 BETTY_STYLE="betty-style.pl"
