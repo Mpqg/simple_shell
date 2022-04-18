@@ -54,8 +54,7 @@ int main(void)
 ```
 ## Authors - Cohort 17
 
-- Alexander Paladines 
-- Yoshua Lopez 
+- Laura Socarras 
 - Maria Paz Quirola
 
 ## Flowchart
