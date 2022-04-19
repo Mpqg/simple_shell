@@ -1,4 +1,10 @@
 #include "shell.h"
+/**
+ * get_path_from_command - get the path of the entered command
+ * @shell: is a fuction
+ * @envPath: string (no estoy segura) 
+ * Return: path
+ */
 
 char *get_path_from_command(shell_t *shell, char *envPath)
 {
@@ -31,6 +37,9 @@ char *get_path_from_command(shell_t *shell, char *envPath)
 }
 /**
  * main - Shell program (entry point)
+ * @argc: no se todavia
+ * @argv: string
+ * @envs: character string 
  * Return: Always 0 (Success)
  */
 int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)), char **envs)

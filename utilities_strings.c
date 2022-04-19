@@ -2,6 +2,10 @@
 
 /**
  * _strconcat - Concatenate 2 string into one
+ * @str1: string
+ * @str2: string
+ * @str3: string
+ * Return: result
  */
 char *_strconcat(char *str1, char *str2, char *str3)
 {

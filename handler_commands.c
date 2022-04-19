@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * new_shell - (no se)
+ * @n_args: number the arguments
+ * Return: shell
+ */
+
 shell_t *new_shell(int n_args)
 {
 	shell_t *shell = (shell_t *)malloc(sizeof(shell_t));

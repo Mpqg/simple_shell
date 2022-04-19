@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * parse_shell - parse what you enter(creo)
+ * @input: str
+ * Return: in fuction shell
+ */
+
 shell_t *parse_shell(char *input)
 {
 	int i = 0, args_count = 0;
