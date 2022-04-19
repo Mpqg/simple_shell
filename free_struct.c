@@ -1,32 +1,32 @@
 #include "shell.h"
 
 /**
- * free_all - free all the structure CMD
+ * free_struct - free all the structure shell
  *
- * @cmd: name of the structure
+ * @shell: name of the structure
  * Return: Always 0
  */
 
-void free_all(cmd_t *cmd)
+void free_struct(shell_t *shell)
 {
 	int i = 0;
 
-	if (cmd)
+	if (shell)
 	{
-		free(cmd->command);
-		cmd->command = NULL;
+		free(shell->command);
+		shell->command = NULL;
 
-		if (cmd->args)
+		if (shell->args)
 		{
-			for (; i < cmd->n_args; i++)
+			for (; i < shell->n_args; i++)
 			{
-				if (cmd->args[i])
-					free(cmd->args[i]);
+				if (shell->args[i])
+					free(shell->args[i]);
 			}
-			free(cmd->args);
-			cmd->args = NULL;
+			free(shell->args);
+			shell->args = NULL;
 		}
-		free(cmd);
-		cmd = NULL;
+		free(shell);
+		shell = NULL;
 	}
 }

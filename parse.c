@@ -1,7 +1,9 @@
-cmd_t *parse_cmd(char *input)
+#include "shell.h"
+
+shell_t *parse_shell(char *input)
 {
 	int i = 0, args_count = 0;
-	cmd_t *cmd = NULL;
+	shell_t *shell = NULL;
 	char *token = NULL;
 
 	/**
@@ -26,14 +28,14 @@ cmd_t *parse_cmd(char *input)
 	 */
 	args_count = count_args_by_space(input);
 
-	cmd = new_cmd(args_count);
-	if (!cmd)
+	shell = new_shell(args_count);
+	if (!shell)
 		return NULL;
 
-	if (cmd->n_args == 0)
+	if (shell->n_args == 0)
 	{
-		cmd->command = _strdup(input);
-		return (cmd);
+		shell->command = _strduplicate(input);
+		return (shell);
 	}
 	// Input: ls -l -a -b
 	// command = [ls] [-l] [-a] [-b]
@@ -41,14 +43,14 @@ cmd_t *parse_cmd(char *input)
 	token = strtok(input, " ");
 	while (token != NULL)
 	{
-		if (cmd->command == NULL)
-			cmd->command = _strdup(token);
+		if (shell->command == NULL)
+			shell->command = _strduplicate(token);
 
 		else
-			cmd->args[i] = _strdup(token), i++;
+			shell->args[i] = _strduplicate(token), i++;
 
 		token = strtok(NULL, " ");
 	}
 
-	return (cmd);
+	return (shell);
 }

@@ -1,5 +1,5 @@
-#ifndef SHELL
-#define SHELL
+#ifndef SHELL_
+#define SHELL_
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -11,26 +11,30 @@
 #include <sys/stat.h>
 #include <stdarg.h>
 
-#define EMPTY_STR ""
-
 /**
- * struct CMD - structure for the CMD
+ * struct SHELL - structure for the SHELL
  * @command: command used
  * @args: arguments
  * @n_args: number of arguments
  * Return: Always 0
  */
 
-typedef struct CMD
+typedef struct SHELL
 {
 	char *command;
 	char **args;
 	int n_args;
-} cmd_t;
+} shell_t;
 
-char *_strconcat(char *s1, char *s2, char *s3);
-char *_strdup(char *str);
+char *_strconcat(char *str1, char *str2, char *str3);
+char *_strduplicate(char *str);
 int _strlen(const char *str);
 int _countby(char *str, char *delimeter);
+void new_signal_handler(int pid);
+shell_t *new_shell(int n_args);
+shell_t *parse_shell(char *input);
+void free_struct(shell_t *shell);
+int count_args_by_space(char *input);
+void free_struct(shell_t *shell);
 
 #endif
