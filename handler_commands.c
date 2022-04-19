@@ -10,7 +10,8 @@ shell_t *new_shell(int n_args)
 {
 	shell_t *shell = (shell_t *)malloc(sizeof(shell_t));
 	if (!shell)
-		return NULL;
+
+		return (NULL);
 
 	shell->n_args = n_args;
 	shell->command = NULL;
@@ -20,7 +21,7 @@ shell_t *new_shell(int n_args)
 	if (shell->args == NULL)
 	{
 		free_struct(shell);
-		return NULL;
+		return (NULL);
 	}
 	return (shell);
 }

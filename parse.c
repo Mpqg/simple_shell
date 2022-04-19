@@ -15,10 +15,9 @@ shell_t *parse_shell(char *input)
 	/**
 	 * Remove the "\n" of the end
 	 * from the variable - (line)
-	 *
 	 * Example:
-	 *  input - "hola\n" and should
-	 * 	be "hola"... Without the break line
+	 * input - "hola\n" and should
+	 * be "hola"... Without the break line
 	 */
 	/** Remove the last character '\n' for '\0' */
 	if (input[strlen(input) - 1] == '\n')
@@ -27,7 +26,6 @@ shell_t *parse_shell(char *input)
 	/**
 	 * Return the count of the args
 	 * each arg its separated by space
-	 *
 	 * Example:
 	 * - ["ls", "-l", "-a", "-b"]
 	 * Output: 3
@@ -36,7 +34,7 @@ shell_t *parse_shell(char *input)
 
 	shell = new_shell(args_count);
 	if (!shell)
-		return NULL;
+		return (NULL);
 
 	if (shell->n_args == 0)
 	{

@@ -82,7 +82,6 @@ char *_strduplicate(char *str)
 int _strlen(const char *str)
 {
 	int count = 0;
-	
 	if (!str)
 		return (count);
 
