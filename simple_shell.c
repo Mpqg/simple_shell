@@ -64,8 +64,6 @@ int main(int argc __attribute__((unused)),
 	/**
 	 * SIGINT = Interrupt the process
 	 * rewrite default signals handler
-	 *
-	 * SIG_IGN = Ignore signal.
 	 */
 	signal(SIGINT, new_signal_handler);
 
@@ -103,10 +101,8 @@ int main(int argc __attribute__((unused)),
 		/**
 		 * Parse - Proccess a string and
 		 * return in the format that I want
-		 *
 		 * In this case I want is a
 		 * struct of type "shell_t"
-		 *
 		 * Manipulate line(read buffer)
 		 */
 		shell = parse_shell(line);
@@ -143,7 +139,6 @@ int main(int argc __attribute__((unused)),
 
 		/**
 		 * Extract the command path
-		 *
 		 */
 		commandPath = get_path_from_command(shell, envPath);
 		if (!commandPath)
