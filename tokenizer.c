@@ -32,10 +32,9 @@ int count_args_by_space(char *input)
 	 * (-1) because ignoring the command
 	 */
 
-	//  = condition ? case true : case false;
 	if (count >= 1)
-	count = count - 1;
-	
+		count = count - 1;
+
 	free(duplicate);
 
 	return (count);

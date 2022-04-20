@@ -75,13 +75,14 @@ char *_strduplicate(char *str)
 }
 
 /**
- * strlen - String lenght
+ * _strlen - String lenght
  * @str: string
  * Return: Always 0
  */
 int _strlen(const char *str)
 {
 	int count = 0;
+
 	if (!str)
 		return (count);
 

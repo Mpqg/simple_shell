@@ -9,6 +9,7 @@
 shell_t *new_shell(int n_args)
 {
 	shell_t *shell = (shell_t *)malloc(sizeof(shell_t));
+
 	if (!shell)
 
 		return (NULL);

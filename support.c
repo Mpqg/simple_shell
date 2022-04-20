@@ -35,3 +35,32 @@ char *get_path_from_command(shell_t *shell, char *envPath)
 		return (NULL);
 	return (path);
 }
+/**
+ * print_dolar_symbol - Prints $ signal and " " or exits the shell
+ * Return: Always 0
+ */
+void print_dolar_symbol(void)
+{
+	if (isatty(STDIN_FILENO) == 1)
+	{
+		if (write(STDOUT_FILENO, "$ ", 2) == EOF)
+			exit(EXIT_FAILURE);
+	}
+}
+/**
+ * get_user_line - get user line and prints a new line if error
+ * Return: Always 0
+ */
+void get_user_line()
+{
+	ssize_t length = 0;
+	
+	length = getline(&line, &lenbuff, stdin);
+	if (length == EOF)
+	{
+		if (isatty(STDIN_FILENO) != 0)
+			write(STDOUT_FILENO, "\n", 1);
+		exit(EXIT_FAILURE);
+	}
+	return(line);
+}
