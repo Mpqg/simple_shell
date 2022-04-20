@@ -37,12 +37,14 @@ char *get_path_from_command(shell_t *shell, char *envPath)
 }
 /**
  * main - Shell program (entry point)
- * @argc: no se todavia
- * @argv: string
- * @envs: character string
+ * @argc: number of arguments to be passed after execution
+ * @argv: list of arguments (where they are hosted)
+ * @envs: environment variables
  * Return: Always 0 (Success)
  */
-int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)), char **envs)
+int main(int argc __attribute__((unused)),
+		char *argv[] __attribute__((unused)),
+	       	char **envs)
 {
 	/* Variables */
 	int i = 0;
