@@ -36,5 +36,6 @@ shell_t *parse_shell(char *input);
 void free_struct(shell_t *shell);
 int count_args_by_space(char *input);
 void free_struct(shell_t *shell);
+char *get_path_from_command(shell_t *shell, char *envPath);
 
 #endif
