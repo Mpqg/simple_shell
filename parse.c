@@ -24,6 +24,7 @@ shell_t *parse_shell(char *input)
 	if (shell->n_args == 0)
 	{
 		shell->command = _strduplicate(input);
+		shell->command = remove_spaces(shell->command);
 		return (shell);
 	}
 
@@ -31,8 +32,10 @@ shell_t *parse_shell(char *input)
 	while (token != NULL)
 	{
 		if (shell->command == NULL)
+		{
 			shell->command = _strduplicate(token);
-
+			shell->command = remove_spaces(shell->command);
+		}
 		else
 			shell->args[i] = _strduplicate(token), i++;
 

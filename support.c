@@ -13,7 +13,10 @@ char *get_path_from_command(shell_t *shell, char *envPath)
 		 *tempEnvPath = NULL;
 
 	struct stat stats;
-
+	if (is_path_command(shell->command))
+	{
+		return (_strduplicate(shell->command));
+	}
 	tempEnvPath = _strduplicate(envPath);
 
 	token = strtok(tempEnvPath, ":");

@@ -41,4 +41,6 @@ void print_dolar_symbol(void);
 char *get_user_line(void);
 int execute_command(shell_t *shell, char *commandPath);
 bool builtin_shell(shell_t *shell, char **envs);
+bool is_path_command(char *command);
+char *remove_spaces(char *command);
 #endif
