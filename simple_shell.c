@@ -27,7 +27,7 @@ int main(int argc __attribute__((unused)),
 		line = get_user_line();
 		shell = parse_shell(line);
 		free(line);
-		if (builtin_shell(shell))
+		if (builtin_shell(shell, envs))
 			continue;
 
 		commandPath = get_path_from_command(shell, envPath);
