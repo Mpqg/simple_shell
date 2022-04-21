@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
- * is_path_command
- *
+ * is_path_command - routing command
+ * @command:command used
  */
 bool is_path_command(char *command)
 {
@@ -16,8 +16,8 @@ bool is_path_command(char *command)
 }
 
 /**
- * @brief
- *
+ * remove_spaces - removes the spaces before the command
+ * @command:command used
  */
 char *remove_spaces(char *command)
 {
