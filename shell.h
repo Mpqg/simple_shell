@@ -39,5 +39,5 @@ void free_struct(shell_t *shell);
 char *get_path_from_command(shell_t *shell, char *envPath);
 void print_dolar_symbol(void);
 char *get_user_line(void);
-
+int execute_command(shell_t *shell, char *commandPath);
 #endif

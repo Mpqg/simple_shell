@@ -10,11 +10,6 @@ int main(int argc __attribute__((unused)),
 		 char *argv[] __attribute__((unused)),
 		 char **envs)
 {
-	int i = 0;
-	int statusLock;
-	char **arg_list;
-	int totalCommand;
-	pid_t childPid;
 	shell_t *shell;
 	char *line = NULL;
 	int count = 0;
@@ -34,7 +29,7 @@ int main(int argc __attribute__((unused)),
 		free(line);
 		if (builtin_shell(shell))
 			continue;
-		
+
 		commandPath = get_path_from_command(shell, envPath);
 		if (!commandPath)
 		{
@@ -43,25 +38,8 @@ int main(int argc __attribute__((unused)),
 			free_struct(shell);
 			continue;
 		}
-	
-		totalCommand = shell->n_args + 1;
 
-		arg_list = malloc(sizeof(char *) * totalCommand);
-
-		i = 0;
-		while (i < totalCommand)
-		{
-			if (i == 0)
-				arg_list[i] = commandPath;
-			else
-				arg_list[i] = shell->args[i - 1];
-			i++;
-		}
-		childPid = fork();
-		if (childPid == 0)
-			execv(commandPath, arg_list);
-
-		wait(&statusLock);
+		execute_command(shell, commandPath);
 		free(commandPath), free_struct(shell);
 	}
 	return (EXIT_SUCCESS);

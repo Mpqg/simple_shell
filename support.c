@@ -91,3 +91,37 @@ bool builtin_shell(shell_t *shell, char **envs)
 	}
 	return (false);
 }
+/**
+ * execute_command - function that execute a command and return the status
+ * @shell: shell
+ * @commandPath: the path of the command that is used
+ * Return: Always 0
+ */
+int execute_command(shell_t *shell, char *commandPath)
+{
+	char **arg_list;
+	int totalCommand;
+	int i;
+	int statusLock;
+	pid_t childPid;
+
+	totalCommand = shell->n_args + 1;
+
+	arg_list = malloc(sizeof(char *) * totalCommand);
+
+	i = 0;
+	while (i < totalCommand)
+	{
+		if (i == 0)
+			arg_list[i] = commandPath;
+		else
+			arg_list[i] = shell->args[i - 1];
+		i++;
+	}
+	childPid = fork();
+	if (childPid == 0)
+		execv(commandPath, arg_list);
+
+	wait(&statusLock);
+	return (statusLock);
+}
