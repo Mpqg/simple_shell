@@ -51,10 +51,12 @@ void print_dolar_symbol(void)
  * get_user_line - get user line and prints a new line if error
  * Return: Always 0
  */
-void get_user_line()
+char *get_user_line(void)
 {
 	ssize_t length = 0;
-	
+	size_t lenbuff = 0;
+	char *line = NULL;
+
 	length = getline(&line, &lenbuff, stdin);
 	if (length == EOF)
 	{
@@ -62,5 +64,30 @@ void get_user_line()
 			write(STDOUT_FILENO, "\n", 1);
 		exit(EXIT_FAILURE);
 	}
-	return(line);
+	return (line);
+}
+/**
+ * builtin_shell - compares if builtin exits
+ * @envs: environment variables
+ * @shell: structure for the SHELL
+ * Return: Always (0)
+ */
+bool builtin_shell(shell_t *shell, char **envs)
+{
+	if (strcmp(shell->command, "exit") == 0)
+	{
+		free_struct(shell);
+		exit(EXIT_SUCCESS);
+	}
+	if (strcmp(shell->command, "env") == 0)
+	{
+		while (*envs)
+		{
+			printf("%s\n", *envs);
+			envs++;
+		}
+		free_struct(shell);
+		return (true);
+	}
+	return (false);
 }

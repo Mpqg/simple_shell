@@ -16,7 +16,6 @@ int main(int argc __attribute__((unused)),
 	int totalCommand;
 	pid_t childPid;
 	shell_t *shell;
-	size_t lenbuff = 0;
 	char *line = NULL;
 	int count = 0;
 	char *commandPath = NULL, *envPath;
@@ -27,43 +26,15 @@ int main(int argc __attribute__((unused)),
 
 	while (true)
 	{
-		line = NULL;
 		commandPath = NULL;
 		count++;
 		print_dolar_symbol();
-
-
-		get_user_line();
-		length = getline(&line, &lenbuff, stdin);
-		if (length == EOF)
-		{
-			if (isatty(STDIN_FILENO) != 0)
-				write(STDOUT_FILENO, "\n", 1);
-			exit(EXIT_FAILURE);
-		}
+		line = get_user_line();
 		shell = parse_shell(line);
 		free(line);
-		if (strcmp(shell->command, "exit") == 0)
-		{
-			free_struct(shell);
-			exit(EXIT_SUCCESS);
-		}
-		if (strcmp(shell->command, "env") == 0)
-		{
-			while (*envs)
-			{
-				printf("%s\n", *envs);
-				envs++;
-			}
-			free_struct(shell);
+		if (builtin_shell(shell))
 			continue;
-		}
-		if (strcmp(shell->command, "cd") == 0)
-		{
-			printf("I'm cd command\n");
-			free_struct(shell);
-			continue;
-		}
+		
 		commandPath = get_path_from_command(shell, envPath);
 		if (!commandPath)
 		{
@@ -72,6 +43,7 @@ int main(int argc __attribute__((unused)),
 			free_struct(shell);
 			continue;
 		}
+	
 		totalCommand = shell->n_args + 1;
 
 		arg_list = malloc(sizeof(char *) * totalCommand);
