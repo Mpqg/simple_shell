@@ -18,7 +18,7 @@ Our program is invoked under the command __./hsh__
 
 to obtain this command what we did at the beginning was to copy all the __.c__ files with the command line 
 
-![Uploading Captura realizada el 2022-04-22 07.24.07.png…]()
+![Captura realizada el 2022-04-22 07 24 07](https://user-images.githubusercontent.com/98244181/164713934-39a6218c-4d9c-4276-a830-bb7714bca86f.png)
 
 then run 
 
