@@ -1,4 +1,4 @@
-*Synopsis*
+#Synopsis#
 
 In this project the basic shell implementation is depicted.
 
