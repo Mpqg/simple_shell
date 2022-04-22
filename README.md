@@ -22,7 +22,8 @@ to obtain this command what we did at the beginning was to copy all the __.c__ f
 
 then run 
 
-![Captura realizada el 2022-04-22 07 24 07](https://user-images.githubusercontent.com/98244181/164714073-801bfdef-c707-4045-9f53-a3e09cd2b428.png)
+![Captura realizada el 2022-04-22 07 26 31](https://user-images.githubusercontent.com/98244181/164716197-a5cfcc39-3cc0-4c77-a0b5-141070cffb2a.png)
+
 
 ## Flowchart ##
 
