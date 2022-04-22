@@ -1,110 +1,40 @@
 .\" Process this file with
 .\" groff -man -Tascii foo.1
 .\"
-.TH _SIMPLE SHELL "2022-03-21" Cohort17
+.TH _SIMPLE SHELL "2022-04-22" Cohort17
 .SH NAME
 _simple_shell \- Recreation of simple_shell
 .SH SYNOPSIS
-int simple_shell(const char *format, ...)
+.SH " "
+.B hsh
 
 .SH DESCRIPTION
 .B _simple_shell
-The function _simple_shell is a variadic function that produces
-a string according to a format and prints it to the standard
-output, much like the C standard library function "simple_shell".
-It can receive a lot of variables as arguments according the
-positions with flags in the formatter. 
+The Simple Shell is a command line interpreter built by students of Holberton School
+as a project. The functionality is not the same as the original shell, but it actually
+is a basic version. 
 
 .SH HOW TO USE
-.B _simple_shell \- Belongs to the library stdio.h.
-Allows to display (data), The function is created
-.IP simple_shell();
-Parameters are placed inside the parantheses.
-The function returns a value that represents the character number
-
-.IP -syntax
-simple_shell("chain", value_1, value_2,...)
-
-.SH example
-#include "main.h"
-
-int main(void)
-.IP {
-.IP _simple_shell("Hello World.\n");
-.IP "return (0);"
-.IP }
+.B The Simple Shell is a command line interpreter, that includes basic funcionality.
+Teh user gets inside sthe shell and write a line, usually a command to be found.
 
 .SH COMPILATION
 $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
-.SH SPECIFIER & OUTPUT
-.IP -c
-Character
-.IP "-d or i"
-Signed decimal integer
-.IP -e
-Scientific notation (mantissa/exponent) using e character
-.IP -E
-Scientific notation (mantissa/exponent) using E character
-.IP -f
-Decimal floating point
-.IP -g
-Uses the shorter of %e or %f
-.IP -G
-Uses the shorter of %E or %f
-.IP -o
-Signed octal
-.IP -s
-String of characters
-.IP -u
-Unsigned decimal integer
-.IP -x
-Unsigned hexadecimal integer
-.IP -X
-Unsigned hexadecimal integer (capital letters)
-.IP -p
-Pointer address
-.IP -n
-Nothing printed
-.IP -%
-Character
-.SH FLAGS & DESCRIPTION
-.IP -
-Left-justify within the given field width; Right justification
-is the default (see width sub-specifier).
-.IP +
-Forces to precede the result with a plus or minus sign (+ or -)
-even for positive numbers. By default, only negative numbers are
-preceded with a -ve sign.
-.IP "(space)"
-If no sign is going to be written, a blank space is inserted before
-the value.
-.IP #
-Used with o, x or X specifiers the value is preceded with 0, 0x or 0X
-respectively for values different than zero. Used with e, E and f, it
-forces the written output to contain a decimal point even if no digits
-would follow. By default, if no digits follow, no decimal point is written.
-Used with g or G the result is the same as with e or E but trailing zeros
-are not removed.
 
-.SH RETURN VALUE
-If successful, the total number of characters written is returned. On failure,
-a negative number is returned.
+. B Invocation 
+hsh can be invoked in both ways: interactively and non-interactively.
 
-.SH EXAMPLE
+.SH BUILTINS
+Commands are supported:
+.B env - prints environment variables
 
-#include "main.h"
+.B exit and Ctrl D - exits the program
 
-int main(void)
-.IP {
-.IP _simple_shell("Let\'s try to simple_shell a simple sentence.\n");
-.IP "return (0);"
-.IP }
+Bultin command: .IP, .br, .\&, .RS, \&$ env, .br
 
 .SH AUTHOR
-Laura Socarras -
-Maria Paz Quirola
+Laura Socarras - 4575@holbertonschool.com
+Maria Paz Quirola - 4534@holbertonschool.com
+
 .SH "SEE ALSO"
-.BR putchar (1),
-.BR malloc (3),
-.BR free (3),
-.BR write (2)
+sh
