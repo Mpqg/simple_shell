@@ -14,9 +14,9 @@ In this project we had the task to create our own UNIX command interpreter, the 
 
 ## Invoking ## 
 
-Our program is invoked under the command _./hsh_
+Our program is invoked under the command __./hsh__
 
-to obtain this command what we did at the beginning was to copy all the _.c_ files with the command line 
+to obtain this command what we did at the beginning was to copy all the __.c__ files with the command line 
 
 
 
