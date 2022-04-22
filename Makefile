@@ -1,15 +1,14 @@
 #!bin/bash
 
 GCC := gcc -Wall -Werror -Wextra -pedantic -std=gnu89
-BETTY := betty
 
 #
 # betty
 #
 
 linter:
-	@$(BETTY) *.c
-	@$(BETTY) *.h
+	@betty *.c
+	@betty *.h
 
 tests:
 	$(info Running the tests)
